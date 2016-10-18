@@ -1,0 +1,14 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <h2>{% trans "Enter search phrase:" %}</h2>
+	  <form id='searchForm' action={% url 'twittersearchapp:search' %} method='GET'>
+	  {% csrf_token %}
+      <input type='text' name='search_phrase'>
+      <input type='submit' value={% trans 'Search'%}>
+    </form>
+  </body>
+</html>

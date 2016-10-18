@@ -1,0 +1,18 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <h2>{% blocktrans %}Search Results for "{{ search_phrase }}": {% endblocktrans %}</h2>
+    {% if num_times_searched > 1 %}
+      <h4>{% blocktrans %}Times used: {{num_times_searched}}{% endblocktrans %}</h4>
+      <h4>{% blocktrans %}Last time used: {{last_search_datetime}}{% endblocktrans %}</h4>
+    {% endif %}
+    <ul>
+      {% for result in results %}
+        <li><span>{% trans "Result" %}: {{ result.text }}</span></li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
